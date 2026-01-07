@@ -3,3 +3,16 @@
 .daimei{
     text-align: center;
 }
+body{
+
+}
+h2{
+    text-align: center;
+}
+table{
+    text-align: center;
+}
+section{
+    position: absolute;
+    padding-left: 500px;
+}

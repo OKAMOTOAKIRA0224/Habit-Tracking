@@ -8,22 +8,24 @@
 </head>
 <body>
     <h1 class="daimei">習慣記録</h1>
-    <h2>筋トレ</h2>
-     <table border="1">
-        <tr>
-            <th>日にち</th>
-            <th>種目</th>
-            <th>回数</th>
-        </tr>
-             {% for a in training %}
-                   <tr>     
-                        <td>{{a.day}}</td>
-                        <td>{{a.title}}</td>
-                        <td>{{a.kaisuu}}</td>
-                    </tr>
-             {% endfor %}
-      <a href="{{ url_for('form')}}">編集</a>
-     </table>
+    <section>
+        <h2>筋トレ</h2>
+        <table border="1">
+            <tr>
+                <th>日にち</th>
+                <th>種目</th>
+                <th>回数</th>
+            </tr>
+                {% for a in training %}
+                    <tr>     
+                            <td>{{a.day}}</td>
+                            <td>{{a.title}}</td>
+                            <td>{{a.kaisuu}}</td>
+                        </tr>
+                {% endfor %}
+        <a href="{{ url_for('form')}}">編集</a>
+        </table>
+    </section>
 
 
 </body>
