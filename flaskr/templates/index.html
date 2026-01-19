@@ -7,25 +7,74 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
 </head>
 <body>
+    <img src="{{ url_for('static', filename='img/img2026.png') }}" alt="2026" class="img1">
     <h1 class="daimei">習慣記録</h1>
-    <section>
-        <h2>筋トレ</h2>
+    <h2><a href="{{ url_for('form') }}">記録する</a></h2>
+    <div class="container">
+        <div class="habit">
+            <h2>筋トレ</h2>
+            <table border="1">
+                <tr>
+                    <th>日にち</th>
+                    <th>種目</th>
+                    <th>回数</th>
+                </tr>
+                {%for t in training%}
+                {%if t.category=="筋トレ"%}
+                <tr>
+                    <td>{{ t.day }}</td>
+                    <td>{{ t.title }}</td>
+                    <td>{{ t.kaisuu }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="habit">
+        <h2>読書</h2>
         <table border="1">
             <tr>
-                <th>日にち</th>
-                <th>種目</th>
-                <th>回数</th>
+            <th>日にち</th>
+            <th>内容</th>
+            <th>時間</th>
             </tr>
-                {% for a in training %}
-                    <tr>     
-                            <td>{{a.day}}</td>
-                            <td>{{a.title}}</td>
-                            <td>{{a.kaisuu}}</td>
-                        </tr>
-                {% endfor %}
-        <a href="{{ url_for('form')}}">編集</a>
+
+            {% for t in training %}
+            {% if t.category == "読書" %}
+            <tr>
+                <td>{{ t.day }}</td>
+                <td>{{ t.title }}</td>
+                <td>{{ t.kaisuu }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
         </table>
-    </section>
+        </div>
+        <div class="habit">
+        <h2>プログラミング</h2>
+        <table border="1">
+            <tr>
+            <th>日にち</th>
+            <th>内容</th>
+            <th>時間</th>
+            </tr>
+
+            {% for t in training %}
+            {% if t.category == "プログラミング" %}
+            <tr>
+                <td>{{ t.day }}</td>
+                <td>{{ t.title }}</td>
+                <td>{{ t.kaisuu }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        </div>
+
+
+
+
+    </div>
 
 
 </body>
