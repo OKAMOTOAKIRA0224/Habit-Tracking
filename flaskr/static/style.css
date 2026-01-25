@@ -1,16 +1,48 @@
 @charset "utf-8"; 
 
-.daimei{
+.daimei {
+    font-size: 60px;
+    font-weight: 900;
+    font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    
+   
+    background: linear-gradient(120deg, #000000, #3e3e3e, #757575);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    
+    text-shadow:
+        2 2 5 rgba(0,0,0,0.3),
+        0 0 8px rgba(255,255,255,0.05);
+
+    letter-spacing: 2px;
+    margin: -90px 20px 0 30px;
     text-align: center;
+    transition: all 0.3s ease;
 }
+.sub {
+    
+  
+    font-weight: 800;
+    font-size: 30px;
+    color: #333;
+    text-shadow:
+        1px 1px 0 #aaa,
+        2px 2px 0 #bbb,
+        3px 3px 0 #ccc;
+}
+
 
 
 .img1{
     width: 270px;
-    transform: rotate(-30deg);
+    transform: rotate(30deg);
     position: relative;
     z-index: -1;
-    padding: 40px;
+    padding-top: -500px;
+    padding-left: 1000px;
+    
+    
 }
 body{
     margin: 0;
@@ -18,7 +50,7 @@ body{
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
-    background: url("../static/img/haikei.jpg");
+    background: url("../static/img/window.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,6 +76,7 @@ h2{
 }
 table{
     text-align: center;
+    background-color: white;
 }
 section{
     position: absolute;
@@ -56,4 +89,43 @@ section.form{
 .form{
     text-align: center;
 }
+
+
+.kirokusuru {
+    background: linear-gradient(135deg, #6b5b95, #b8a9c9); 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px; 
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+    text-decoration: none; 
+    display: inline-block;
+}
+
+.kirokusuru:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow:
+}
+
+.delete-btn {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #ef4444;
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+
 

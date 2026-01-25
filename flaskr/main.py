@@ -14,11 +14,14 @@ def index():
     training = []
     for row in db_training:
         training.append({
-            'day': row[0],
-            'title': row[1],
-            'kaisuu': row[2],
-            'category': row[3]
-        })
+            'id': row[0],
+            'category': row[1],
+            'day': row[2],
+            'title': row[3],
+            'kaisuu': row[4]
+})
+
+
 
     return render_template('index.html', training=training)
 
@@ -37,9 +40,11 @@ def register():
 
     con = sqlite3.connect(DATABASE)
     con.execute(
-        "INSERT INTO training VALUES(?,?,?,?)",
-        [day, title, kaisuu, category]
-    )
+    "INSERT INTO training (category, day, title, kaisuu) VALUES (?, ?, ?, ?)",
+    (category, day, title, kaisuu)
+)
+
+
     con.commit()
     con.close()
 
@@ -49,3 +54,12 @@ def register():
 if __name__ == "__main__":
     app.run(debug=True)
 
+@app.route('/delete/<int:id>', methods=['POST'])
+def delete(id):
+    print("削除ID:", id)   
+    con = sqlite3.connect(DATABASE)
+    cur = con.cursor()
+    cur.execute("DELETE FROM training WHERE id = ?", (id,))
+    con.commit()
+    con.close()
+    return redirect(url_for('index'))
