@@ -8,11 +8,11 @@
 </head>
 <body>
     <img src="{{ url_for('static', filename='img/img2026.png') }}" alt="2026" class="img1">
-    <h1 class="daimei">習慣記録</h1>
-    <h2><a href="{{ url_for('form') }}">記録する</a></h2>
+    <h1><p class="daimei">習慣記録</p></h1>
+    <h2><a  class="kirokusuru" href="{{ url_for('form') }}">記録する</a></h2>
     <div class="container">
         <div class="habit">
-            <h2>筋トレ</h2>
+            <h2 class="sub">筋トレ</h2>
             <table border="1">
                 <tr>
                     <th>日にち</th>
@@ -25,13 +25,18 @@
                     <td>{{ t.day }}</td>
                     <td>{{ t.title }}</td>
                     <td>{{ t.kaisuu }}</td>
+                    <td>
+            <form action="{{ url_for('delete', id=t.id) }}" method="post">
+                <button class="delete-btn" type="submit">削除</button>
+            </form>
+        </td>
                 </tr>
                 {% endif %}
                 {% endfor %}
             </table>
         </div>
         <div class="habit">
-        <h2>読書</h2>
+        <h2 class="sub">読書</h2>
         <table border="1">
             <tr>
             <th>日にち</th>
@@ -45,13 +50,18 @@
                 <td>{{ t.day }}</td>
                 <td>{{ t.title }}</td>
                 <td>{{ t.kaisuu }}</td>
+                <td>
+            <form action="{{ url_for('delete', id=t.id) }}" method="post">
+                <button class="delete-btn" type="submit">削除</button>
+            </form>
+        </td>
             </tr>
             {% endif %}
             {% endfor %}
         </table>
         </div>
         <div class="habit">
-        <h2>プログラミング</h2>
+        <h2 class="sub">プログラミング</h2>
         <table border="1">
             <tr>
             <th>日にち</th>
@@ -65,6 +75,11 @@
                 <td>{{ t.day }}</td>
                 <td>{{ t.title }}</td>
                 <td>{{ t.kaisuu }}</td>
+                <td>
+            <form  action="{{ url_for('delete', id=t.id) }}" method="post">
+                <button class="delete-btn" type="submit">削除</button>
+            </form>
+        </td>
             </tr>
             {% endif %}
             {% endfor %}
